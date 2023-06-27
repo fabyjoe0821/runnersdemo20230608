@@ -99,6 +99,34 @@ public class DataLoader implements CommandLineRunner {
 
         runnerEntity3.getLaptimes().add(laptime5);
         runnerEntity3.getLaptimes().add(laptime6);
+
+        RunnerEntity runnerEntity = new RunnerEntity();
+        runnerEntity.setRunnerName("Tomi");
+        runnerEntity.setPace(110);
+        runnerEntity.setShoeSize(42);
+        runnerEntity.setShoeName(shoeNameEntity);
+
+        runnerRepository.save(runnerEntity);
+
+
+        LapTimeEntity laptime1 = new LapTimeEntity();
+        laptime1.setLapNumber(1);
+        laptime1.setTimeSeconds(120);
+        laptime1.setRunner(runnerEntity);
+        lapTimeRepository.save(laptime1);
+
+        LapTimeEntity laptime2 = new LapTimeEntity();
+        laptime2.setLapNumber(2);
+        laptime2.setTimeSeconds(110);
+        laptime2.setRunner(runnerEntity);
+        lapTimeRepository.save(laptime2);
+
+        runnerEntity.getLaptimes().add(laptime1);
+        runnerEntity.getLaptimes().add(laptime2);
+
+        ShoeNameEntity shoeNameEntity2 = new ShoeNameEntity();
+        shoeNameEntity2.setShoeNameBrand("Nike");
+        shoeNameRepository.save(shoeNameEntity2);
     }
 }
 
